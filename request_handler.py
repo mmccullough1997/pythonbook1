@@ -19,7 +19,9 @@ from views import (
   update_employee,
   update_location,
   get_customers_by_email,
-  get_animals_by_location_id
+  get_animals_by_location_id,
+  get_employees_by_location_id,
+  get_animals_by_status
 )
 from views.employee_requests import get_all_employees, get_single_employee
 from views.location_requests import get_all_locations, get_single_location
@@ -122,6 +124,12 @@ class HandleRequests(BaseHTTPRequestHandler):
                 
             if query.get('location_id') and resource == 'animals':
                 response = get_animals_by_location_id(query['location_id'][0])
+                
+            if query.get('location_id') and resource == 'employees':
+                response = get_employees_by_location_id(query['location_id'][0])
+                
+            if query.get('status') and resource == 'animals':
+                response = get_animals_by_status(query['status'][0])
 
         self.wfile.write(response.encode())
 

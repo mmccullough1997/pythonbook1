@@ -4,7 +4,8 @@ get_single_animal,
 create_animal,
 delete_animal,
 update_animal,
-get_animals_by_location_id
+get_animals_by_location_id,
+get_animals_by_status
 )
 from .location_requests import (
   get_all_locations,
@@ -18,7 +19,8 @@ from .employee_requests import (
   get_single_employee,
   create_employee,
   delete_employee,
-  update_employee
+  update_employee,
+  get_employees_by_location_id
 )
 from .customer_requests import (
   get_all_customers,
