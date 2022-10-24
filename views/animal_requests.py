@@ -81,12 +81,14 @@ def get_all_animals():
             location = Location(row['location_id'], row['location_name'], row['location_address'])
 
             # Add the dictionary representation of the location to the animal
+            location.__dict__.pop('id')
             animal.location = location.__dict__
             
             # Create a Location instance from the current row
             customer = Customer(row['customer_id'], row['customer_name'], row['customer_address'],row['customer_email'],row['customer_password'])
             
             # Add the dictionary representation of the location to the animal
+            customer.__dict__.pop('id')
             animal.customer = customer.__dict__
 
             animals.append(animal.__dict__)
